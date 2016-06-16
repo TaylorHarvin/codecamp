@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<!-- Javascript to interact with HTML NOTE: JQuery is a special Javascript tool that you can download-->
+		<script src="js\jquery\jquery-2.1.4.js"></script>
+		<script src="js\MsgEncrypt.js"></script>
+		<h2 align="center">Code Camp Word Blocker</h2>
+		<style>
+			.txtArea{
+				width:70%;
+				height: 18%;
+				border: 2px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div align="center">
+			<div>
+				Encryption Key (0-10): <input id="encKey" type="number" min="0" max="10" value="1" onchange="ClearMsg()"/>
+			</div>
+			<div>
+				<h4>Current Message:</h4>
+				<textarea id="msg" class="txtArea"></textarea>
+				<br/><button onclick="EncryptMsg()">Encrypt Message</button>
+				<hr/><button onclick="DencryptMsg()">Dencrypt Message</button>
+			</div>
+			<div>
+				<h4>Encrypted Message:</h4>
+				<textarea id="encMsg" class="txtArea"></textarea>
+			</div>
+		</div>
+	</body>
+</html>

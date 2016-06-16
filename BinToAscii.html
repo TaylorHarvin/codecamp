@@ -1,0 +1,71 @@
+<!--
+	Developer: Taylor Harvin
+	Date:		  6/13/2016
+	Purpose:	  Basic converter from binary to ascii and ascii to binary.
+-->
+<html>
+	<head>
+		<!-- Javascript to interact with HTML-->
+		<script>
+			// Converts binary to ascii
+			function BinToAscii(){
+				var binStr = document.getElementById("bin").value;
+				var binLineArray = binStr.split('\n');
+				var asciiRes = document.getElementById("ascii");
+				var binStrArray ="";
+				
+				// Clear the ascii text
+				asciiRes.value = "";
+				
+				// Go through each line of binary
+				for(lineArrayIndex in binLineArray){
+					binStrArray = binLineArray[lineArrayIndex].split(' ');
+					// Loop through all sets of binary and convert to ascii (8 digits at a time)
+					for(spaceArrayIndex in binStrArray){
+						asciiRes.value += String.fromCharCode(parseInt(binStrArray[spaceArrayIndex], 2));
+						console.log(binStrArray[spaceArrayIndex]+ " => " +String.fromCharCode(parseInt(binStrArray[spaceArrayIndex], 2)));
+					}
+				}
+			}
+			
+			function AsciiToBin(){
+				var binRes = document.getElementById("bin");
+				//var binStrArray = binStr.split(" ");
+				var asciiStr = document.getElementById("ascii").value;
+				
+				// Clear the binary text
+				binRes.value = "";
+				
+				// Loop through all characters and convert to binary
+				for(arrayIndex = 0; arrayIndex < asciiStr.length; arrayIndex++){
+					binRes.value += asciiStr.charCodeAt(arrayIndex).toString(2);
+					console.log(asciiStr.charAt(arrayIndex) + " => " + asciiStr.charCodeAt(arrayIndex).toString(2));
+					
+					
+					// If 8 digets have been read -- create a new line, otherwise just as 
+					// a space between the binary set
+					if(arrayIndex%8 == 0 && arrayIndex != 0)
+						binRes.value += '\n';
+					else
+						binRes.value += ' ';
+				}
+			}
+			
+		</script>
+		<h2 align="center">Binary to Ascii and Ascii to Binary</h2>
+	</head>
+	<body>
+		<div align="center">
+			<div>
+				<h4>Regular text (ascii)</h4>
+				<textarea id="ascii" style="width:30%; height: 100px"></textarea>
+				<button onclick="AsciiToBin()">Convert to Bin</button>
+			</div>
+			<div>
+				<h4>Binary</h4>
+				<textarea id="bin" style="width:30%; height: 100px"></textarea>
+				<button onclick="BinToAscii()">Convert to Ascii</button>
+			</div>
+		</div>
+	</body>
+</html>
