@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<!-- Javascript to interact with HTML NOTE: JQuery is a special Javascript tool that you can download-->
+		<script src="js\jquery\jquery-2.1.4.js"></script>
+		<script src="js\WordFilter.js"></script>
+		<h2 align="center">Code Camp Word Blocker</h2>
+		<style>
+			.txtArea{
+				width:70%;
+				height: 18%;
+				border: 2px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div align="center">
+			<div>
+				<h4>Complex filter method (not fully finished) -- WORST method:</h4>
+				<textarea id="txtCom" class="txtArea" onkeyup="FilterWords_Complex(this.value)"></textarea>
+			</div>
+			<div>
+				<h4>Loop and replace -- BETTER method:</h4>
+				<textarea id="txtBasicLoop" class="txtArea" onkeyup="FilterWords_BasicLoop(this.value)"></textarea>
+			</div>
+			<div>
+				<h4>Regular expression -- BEST method:</h4>
+				<textarea id="txtRegEx" class="txtArea" onkeyup="FilterWords_Simple(this.value)"></textarea>
+			</div>
+		</div>
+	</body>
+</html>
